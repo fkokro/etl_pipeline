@@ -61,10 +61,12 @@ class DataETL:
             test_processed_df = self.fill_none_housing_data(test_df)
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
             os.makedirs(os.path.dirname(self.ingestion_config.test_data_path), exist_ok=True)
+            os.makedirs(os.path.dirname(self.ingestion_config.train_data_txt_path), exist_ok=True)
+            os.makedirs(os.path.dirname(self.ingestion_config.test_data_txt_path), exist_ok=True)
             trained_processed_df.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
-            trained_processed_df.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
-            test_processed_df.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
-            test_processed_df.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
+            trained_processed_df.to_csv(self.ingestion_config.train_data_txt_path, index=False, header=True)
+            test_processed_df.to_csv(self.ingestion_config.test_data_path, sep='|', index=False)
+            test_processed_df.to_csv(self.ingestion_config.test_data_txt_path, sep='|', index=False)
             logging.info('Data processed and stored in artifacts.')
             
         except Exception as e:
