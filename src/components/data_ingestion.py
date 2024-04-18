@@ -12,6 +12,8 @@ class DataIngestionConfig:
     raw_data_json_path: str=os.path.join('artifacts','raw_data.json')
     train_data_path: str=os.path.join('artifacts','train.csv')
     test_data_path: str=os.path.join('artifacts','test.csv')
+    train_data_txt_path: str=os.path.join('artifacts','train.txt')
+    test_data_txt_path: str=os.path.join('artifacts','test.txt')
     raw_data_path: str=os.path.join('artifacts','data.csv')   
     
 
@@ -60,6 +62,8 @@ class DataETL:
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
             os.makedirs(os.path.dirname(self.ingestion_config.test_data_path), exist_ok=True)
             trained_processed_df.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
+            trained_processed_df.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
+            test_processed_df.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
             test_processed_df.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
             logging.info('Data processed and stored in artifacts.')
             
