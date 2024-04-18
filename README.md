@@ -1,1 +1,1 @@
-# generic_ML_app_template
+# ETL Pipeline Template
