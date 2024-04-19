@@ -3,3 +3,5 @@ numpy
 seaborn
 -e .
 SQLAlchemy
+psycopg2
+requests
